@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'uservalidation',
     'WealthManager',
-    'HNI'
+    'HNI',
+    "appointments"
 ]
 
 MIDDLEWARE = [
