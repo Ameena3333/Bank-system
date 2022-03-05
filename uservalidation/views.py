@@ -23,7 +23,7 @@ def loginpage(request):
             if(user is not None):
                 if(user.isWM):
                     # redirecting to the WM dashboard
-                    return HttpResponse("WM")
+                    return redirect("WealthManager:dashbaord")
                 else:
                     # redirecting to the HNI dashboard
                     return HttpResponse("HNI")
