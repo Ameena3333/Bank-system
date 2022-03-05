@@ -12,7 +12,16 @@ import random
 
 def dashboard(request):
     pass
-    return HttpResponse("wealth Manager dashbaord")
+    wm = WM.objects.get(wm_id=request.user.id)
+    hnis = WMtoHNI.objects.filter(wm=wm)
+    if(request.method == "POST"):
+        o = WMtoHNI.objects.get(id=int(request.POST.get("hni")))
+        hni = HNI.objects.get(hni=o.hni)
+        date = request.POST.get("date")
+        print(hni)
+        print(date)
+
+    return render(request, "WealthManager/dashboard.html", {"hnis": hnis})
 
 
 def setup(request):
@@ -45,7 +54,7 @@ def setup(request):
                                     '''.format(name=hni.getFullName(), username=hni.email, password=password)
 
         send_mail(
-            'Welcome to Aspire', body, 'bankproject23@gmail.com', [hni.email], fail_silently=False)
+            'Welcome to DBS', body, 'bankproject23@gmail.com', [hni.email], fail_silently=False)
 
         # -------------SENDING MAIL-----------------
 
