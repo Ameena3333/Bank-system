@@ -11,6 +11,7 @@ def loginpage(request):
     if(request.user.is_authenticated):
         pass
         user = request.user
+
         if(user.isWM):
             pass  # redirecting to the WM dashboard
         elif(user.isHNI):
@@ -21,6 +22,7 @@ def loginpage(request):
             password = request.POST.get("password")
             user = authenticate(email=email, password=password)
             if(user is not None):
+                login(request, user)
                 if(user.isWM):
                     # redirecting to the WM dashboard
                     return redirect("WealthManager:dashbaord")
