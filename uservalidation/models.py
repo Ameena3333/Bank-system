@@ -56,3 +56,25 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     def isUserHNI(self):
         return self.isHNI
+
+
+class WM(models.Model):
+    wm_id = models.ForeignKey(NewUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.wm_id.getFullName()
+
+
+class HNI(models.Model):
+    hni_id = models.ForeignKey(NewUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.hni_id.getFullName()
+
+
+class WMtoHNI(models.Model):
+    wm = models.ForeignKey(WM, on_delete=models.CASCADE)
+    hni = models.ForeignKey(HNI, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.wm.wm_id.getFullName() + " -> "+self.hni.hni_id.getFullName()

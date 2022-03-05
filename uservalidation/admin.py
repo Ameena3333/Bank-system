@@ -9,3 +9,6 @@ class UserAdminConfig(admin.ModelAdmin):
 
 
 admin.site.register(NewUser, UserAdminConfig)
+admin.site.register(WM)
+admin.site.register(HNI)
+admin.site.register(WMtoHNI)
