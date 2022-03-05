@@ -22,29 +22,31 @@
                     <div class="card-header">
                         <center><b>Create hmi</b></center>
                     </div>
+                    <form method="POST" >
                     <div class="card-body">
-                        <form method="POST" >
+                        
                             {% csrf_token %}
                             
                                 <div class="row">
                                   <div>
-                                      <input type="email" placeholder="email" />
+                                      <input  class="form-control" type="email" placeholder="email" name="email" />
                                   </div>
                                   <div class="col">
-                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" class="form-control" placeholder="First name" name="firstname">
                                   </div>
                                   <div class="col">
-                                    <input type="text" class="form-control" placeholder="Last name">
+                                    <input type="text" class="form-control" placeholder="Last name" name="lastname">
                                   </div>
                                 </div>
                               
-                        </form>
+                        
                     </div>
                     <div class="card-footer">
-                        <button>
+                        
                             <button type="submit" class="btn btn-success">Submit</button>
-                        </button>
+                        
                     </div>
+                </form>
                 </div>
             </div>
         </div>
